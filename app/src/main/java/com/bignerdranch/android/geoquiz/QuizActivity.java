@@ -34,7 +34,7 @@ public class QuizActivity extends AppCompatActivity {
         setContentView(R.layout.activity_quiz);
 
         mQuestionTextView = (TextView)
-                findViewById(R.id.question_text_view);
+                findViewById(R.id.question_text_view);          //Tying the text view with the code TextView
 
 
         mTrueButton = (Button)findViewById(R.id.true_button);

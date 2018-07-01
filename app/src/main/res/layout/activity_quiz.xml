@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:padding="24dp"
         android:id="@+id/question_text_view"
-        android:text="@string/question_text"/>
+        />
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
