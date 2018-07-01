@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -13,8 +14,8 @@ public class QuizActivity extends AppCompatActivity {
 
     private Button mTrueButton;
     private Button mFalseButton;
-    private Button mNextButton;
-    private Button mpreviousButton;
+    private ImageButton mNextButton;
+    private ImageButton mpreviousButton;
     private TextView mQuestionTextView;
     private Question[] mQuestionBank = new Question[]
             {
@@ -59,7 +60,7 @@ public class QuizActivity extends AppCompatActivity {
                                                    }
                                                });
 
-        mNextButton = (Button)
+        mNextButton = (ImageButton)
                 findViewById(R.id.next_button);
         mNextButton.setOnClickListener(new
                                                View.OnClickListener() {
@@ -71,7 +72,7 @@ public class QuizActivity extends AppCompatActivity {
                                                    }
                                                });
 
-        mpreviousButton = (Button)
+        mpreviousButton = (ImageButton)
                 findViewById(R.id.previous_button);
         mpreviousButton.setOnClickListener(new
                                                    View.OnClickListener() {
