@@ -18,6 +18,8 @@ public class QuizActivity extends AppCompatActivity {
     private Button mTrueButton;
     private Button mFalseButton;
     private Button mNextButton;
+    private float countCorrect=0f;
+    private float percentCorrect;
     //private ImageButton mpreviousButton;
     private TextView mQuestionTextView;
     private Question[] mQuestionBank = new Question[]
@@ -60,6 +62,8 @@ public class QuizActivity extends AppCompatActivity {
                                                    public void onClick(View v) {
 
                                                       checkAnswer(true);
+                                                       mTrueButton.setEnabled(false);
+                                                       mFalseButton.setEnabled(false);
                                                    }
                                                });
 
@@ -70,7 +74,8 @@ public class QuizActivity extends AppCompatActivity {
                                                    public void onClick(View v) {
 
                                                        checkAnswer(false);
-
+                                                       mTrueButton.setEnabled(false);
+                                                       mFalseButton.setEnabled(false);
                                                    }
                                                });
 
@@ -80,6 +85,8 @@ public class QuizActivity extends AppCompatActivity {
                                                View.OnClickListener() {
                                                    @Override
                                                    public void onClick(View v) {
+                                                       mTrueButton.setEnabled(true);
+                                                       mFalseButton.setEnabled(true);
                                                        mCurrentIndex = (mCurrentIndex + 1) %
                                                                mQuestionBank.length;
                                                        updateQuestion();
@@ -113,11 +120,19 @@ public class QuizActivity extends AppCompatActivity {
         int messageResId = 0;
         if (userPressedTrue == answerIsTrue) {
             messageResId = R.string.correct_toast;
+            countCorrect=countCorrect+1;
         } else {
             messageResId = R.string.incorrect_toast;
         }
         Toast.makeText(this, messageResId,
                 Toast.LENGTH_SHORT)
                 .show();
+        if(mCurrentIndex==4)
+        {
+            percentCorrect= (countCorrect/5.0f)*100f;
+            Toast.makeText(this, "Your score is " + String.valueOf(Math.round(percentCorrect) +"%!"),
+                    Toast.LENGTH_SHORT)
+                    .show();
+        }
     }
 }
