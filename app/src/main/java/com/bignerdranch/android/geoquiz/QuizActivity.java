@@ -3,6 +3,7 @@ package com.bignerdranch.android.geoquiz;
 import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
@@ -11,6 +12,8 @@ import android.widget.Toast;
 
 public class QuizActivity extends AppCompatActivity {
 
+    private static final String TAG = "QuizActivity";
+    private static final String KEY_INDEX = "index";
     private Button mTrueButton;
     private Button mFalseButton;
     private Button mNextButton;
@@ -27,11 +30,23 @@ public class QuizActivity extends AppCompatActivity {
                             true),
                     new Question(R.string.question_asia, true),
             };
+    @Override
+    public void onSaveInstanceState(Bundle
+                                            savedInstanceState) {
+        super.onSaveInstanceState(savedInstanceState);
+        Log.i(TAG, "onSaveInstanceState");
+        savedInstanceState.putInt(KEY_INDEX,
+                mCurrentIndex);
+    }
     private int mCurrentIndex = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
+        if (savedInstanceState != null) {
+            mCurrentIndex =
+                    savedInstanceState.getInt(KEY_INDEX, 0);
+        }
 
         mQuestionTextView = (TextView)
                 findViewById(R.id.question_text_view);          //Tying the text view with the code TextView
