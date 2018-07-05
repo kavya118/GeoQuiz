@@ -17,8 +17,8 @@ public class QuizActivity extends AppCompatActivity {
     private static final String KEY_INDEX = "index";
     private Button mTrueButton;
     private Button mFalseButton;
-    private ImageButton mNextButton;
-    private ImageButton mpreviousButton;
+    private Button mNextButton;
+    //private ImageButton mpreviousButton;
     private TextView mQuestionTextView;
     private Question[] mQuestionBank = new Question[]
             {
@@ -37,8 +37,7 @@ public class QuizActivity extends AppCompatActivity {
                                             savedInstanceState) {
         super.onSaveInstanceState(savedInstanceState);
         Log.i(TAG, "onSaveInstanceState");
-        savedInstanceState.putInt(KEY_INDEX,
-                mCurrentIndex);
+        savedInstanceState.putInt(KEY_INDEX, mCurrentIndex);
     }
     private int mCurrentIndex = 0;
     @Override
@@ -75,7 +74,7 @@ public class QuizActivity extends AppCompatActivity {
                                                    }
                                                });
 
-        mNextButton = (ImageButton)
+        mNextButton = (Button)
                 findViewById(R.id.next_button);
         mNextButton.setOnClickListener(new
                                                View.OnClickListener() {
@@ -87,7 +86,7 @@ public class QuizActivity extends AppCompatActivity {
                                                    }
                                                });
 
-        mpreviousButton = (ImageButton)
+       /* mpreviousButton = (ImageButton)
                 findViewById(R.id.previous_button);
         mpreviousButton.setOnClickListener(new
                                                    View.OnClickListener() {
@@ -97,7 +96,7 @@ public class QuizActivity extends AppCompatActivity {
                                                                    mQuestionBank.length;
                                                            updateQuestion();
                                                        }
-                                                   });
+                                                   });*/
         updateQuestion();
     }
 
