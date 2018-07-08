@@ -18,7 +18,7 @@ public class QuizActivity extends AppCompatActivity {
     private Button mTrueButton;
     private Button mFalseButton;
     private Button mNextButton;
-    //private ImageButton mpreviousButton;
+    private Button mpreviousButton;
     private TextView mQuestionTextView;
     private Question[] mQuestionBank = new Question[]
             {
@@ -86,7 +86,7 @@ public class QuizActivity extends AppCompatActivity {
                                                    }
                                                });
 
-       /* mpreviousButton = (ImageButton)
+        mpreviousButton = (Button)
                 findViewById(R.id.previous_button);
         mpreviousButton.setOnClickListener(new
                                                    View.OnClickListener() {
@@ -96,7 +96,7 @@ public class QuizActivity extends AppCompatActivity {
                                                                    mQuestionBank.length;
                                                            updateQuestion();
                                                        }
-                                                   });*/
+                                                   });
         updateQuestion();
     }
 
